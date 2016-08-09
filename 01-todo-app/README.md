@@ -7,6 +7,9 @@ Create a TO-DO App that allow the user to do the following actions:
 - Mark ALL tasks as completed
 - List completed tasks
 
+![complete tasks](img/completeTasks.gif)
+![complete ALL tasks](img/completeAllTasks.gif)
+
 ## Stage 1: Variable
 
 The list of tasks must be stored in a **variable** of the app. Every time we re-launch the app the tasks will be reset to `[]`
