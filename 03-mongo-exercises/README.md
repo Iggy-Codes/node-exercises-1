@@ -189,4 +189,87 @@ Get the restaurants with a cuusine equal and not equal some value
 
 Get details of a restaurant based on its ID
 
+### _GET_ `/restaurant/:id/around/:km` **Super challenge!!!**
+
+Get restaurants that are located a specific number of kilometers around of another one
+
+`http://localhost:3000/restaurant/57ab1efcfd999cac66e8ef89/around/5?show=address,name&hide=_id&limit=5`
+
+should return restaurants 5km around the one selected...
+
+```
+[
+  {
+    address: {
+      ...
+      coord: [ -73.98241999999999, 40.579505 ],
+      ...
+    },
+    name: "Riviera Caterer"
+  },
+  {
+    address: {
+      ...
+      coord: [ -73.983564, 40.579355 ],
+      ...
+    },
+    name: "Pop'S Restaurant"
+  },
+  {
+    address: {
+      ...
+      coord: [-73.9838125, 40.5788295 ],
+      ...
+    },
+    name: "Totonno'S Pizzeria"
+  },
+   {
+    address: {
+      ...
+      coord: [ -73.9839533, 40.578876 ],
+      ...
+    },
+    name: "Primorskiy Corp."
+  },
+   {
+    address: {
+      ...
+      coord: [ -73.9805707, 40.5793238 ],
+      ...
+    },
+    name: "Domino'S Pizza"
+  }
+]
+```
+
+
+> Hint: You will need to index using a 2dsphere to this kind of queries. Go to the shell and do...
+
+```
+  db.restaurants.ensureIndex({ "address.coord":"2dsphere"}); 
+```
+
+> After this you'll be able to do queries like this
+
+```
+  db.collection("restaurants").find( {
+    "address.coord" : {
+         $near: {
+             $geometry: {
+                type: "Point" ,
+                coordinates: [ longitude , latitude ]
+             },
+             $maxDistance: km*1000
+          }
+        }
+      }
+    )
+```
+
+More info: 
+- [`$near`](https://docs.mongodb.com/manual/reference/operator/query/near/#op._S_near)
+- https://docs.mongodb.com/manual/tutorial/geospatial-tutorial/
+- https://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
+- http://dataops.co/working-with-geospatial-support-in-mongodb/
+
 
