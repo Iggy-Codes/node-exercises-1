@@ -184,3 +184,9 @@ Get the restaurants with a cuusine equal and not equal some value
 ]
 ```
 
+
+### _GET_ `/restaurant/:id`
+
+Get details of a restaurant based on its ID
+
+
