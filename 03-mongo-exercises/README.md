@@ -157,3 +157,30 @@ Add a paging parameter based on the limit parameter
 ```
 
 > Hint: Use [Cursor method](https://mongodb.github.io/node-mongodb-native/api-generated/cursor.html) `skip()`
+
+### _GET_ `/restaurants/cuisine/:cuisine` & `/restaurants/cuisine/not/:cuisine`
+
+Get the restaurants with a cuusine equal and not equal some value
+
+> Hint: Use the same function to handle both endpoins: w/ and wo/ `/not/`
+
+`http://localhost:3000/restaurants/cuisine/Bakery?hide=_id&show=name,cuisine&limit=3`
+
+```
+[
+  { cuisine: "Bakery", name: "Morris Park Bake Shop" },
+  { cuisine: "Bakery", name: "Olive'S" },
+  { cuisine: "Bakery", name: "Tropical House Baking Co." }
+]
+```
+
+`http://localhost:3000/restaurants/cuisine/not/Bakery?hide=_id&show=name,cuisine&limit=3`
+
+```
+[
+  { cuisine: "American ", name: "Riviera Caterer" },
+  { cuisine: "Hamburgers", name: "Wendy'S" },
+  { cuisine: "Irish", name: "Dj Reynolds Pub And Restaurant" }
+]
+```
+
