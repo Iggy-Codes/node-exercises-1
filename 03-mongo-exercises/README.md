@@ -189,7 +189,7 @@ Get the restaurants with a cuusine equal and not equal some value
 
 Get details of a restaurant based on its ID
 
-### _GET_ `/restaurant/:id/around/:km` **Super challenge!!!**
+### _GET_ `/restaurant/:id/around/:km` ** **_Super challenge!!!_**
 
 Get restaurants that are located a specific number of kilometers around of another one
 
