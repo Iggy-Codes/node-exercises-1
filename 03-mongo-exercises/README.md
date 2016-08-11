@@ -103,6 +103,57 @@ should return...
    },
    ...
   ]
-``
+```
 
+### Propagate your filters
 
+> Prepare your filters so they can be applied in ALL your endpoints
+
+`http://localhost:3000/restaurants/borough/Brooklyn?hide=_id&show=name`
+
+should return...
+```
+[
+  {name: "Riviera Caterer"},
+  {name: "Wendy'S"},
+  {name: "Wilken'S Fine Food"},
+  {name: "Taste The Tropics Ice Cream"},
+  ...
+]
+```
+
+### _GET_ `/restaurants?limit=5`
+
+Limit the number of results using another param in the url
+
+`http://localhost:3000/restaurants/borough/Brooklyn?hide=_id&show=name&limit=5`
+
+```
+[
+  { name: "Riviera Caterer" },
+  { name: "Wendy'S" },
+  { name: "Wilken'S Fine Food" },
+  { name: "Taste The Tropics Ice Cream" },
+  { name: "Regina Caterers" }
+]
+```
+
+> Hint: Use [Cursor method](https://mongodb.github.io/node-mongodb-native/api-generated/cursor.html) `limit()`
+
+### _GET_ `/restaurants?limit=5&page=2`
+
+Add a paging parameter based on the limit parameter
+
+`http://localhost:3000/restaurants?hide=_id&show=name&limit=5&page=2`
+
+```
+[
+  { name: "Wendy'S" },
+  { name: "Dj Reynolds Pub And Restaurant" },
+  { name: "Tov Kosher Kitchen" },
+  { name: "Brunos On The Boulevard" },
+  { name: "Kosher Island" }
+]
+```
+
+> Hint: Use [Cursor method](https://mongodb.github.io/node-mongodb-native/api-generated/cursor.html) `skip()`
