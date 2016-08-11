@@ -193,7 +193,7 @@ Get details of a restaurant based on its ID
 
 Get restaurants that are located a specific number of kilometers around of another one
 
-`http://localhost:3000/restaurant/57ab1efcfd999cac66e8ef89/around/5?show=address,name&hide=_id&limit=5`
+`http://localhost:3000/restaurant/57ab1efcfd999cac66e8ef89/around/5?show=address.coord,name&hide=_id&limit=5`
 
 should return restaurants 5km around the one selected...
 
@@ -201,41 +201,31 @@ should return restaurants 5km around the one selected...
 [
   {
     address: {
-      ...
-      coord: [ -73.98241999999999, 40.579505 ],
-      ...
+      coord: [ -73.98241999999999, 40.579505 ]
     },
     name: "Riviera Caterer"
   },
   {
     address: {
-      ...
-      coord: [ -73.983564, 40.579355 ],
-      ...
+      coord: [ -73.983564, 40.579355 ]
     },
     name: "Pop'S Restaurant"
   },
   {
     address: {
-      ...
-      coord: [-73.9838125, 40.5788295 ],
-      ...
+      coord: [ -73.9838125, 40.5788295 ]
     },
     name: "Totonno'S Pizzeria"
   },
-   {
+  {
     address: {
-      ...
-      coord: [ -73.9839533, 40.578876 ],
-      ...
+      coord: [ -73.9839533, 40.578876 ]
     },
     name: "Primorskiy Corp."
   },
-   {
+  {
     address: {
-      ...
-      coord: [ -73.9805707, 40.5793238 ],
-      ...
+      coord: [ -73.9805707, 40.5793238 ]
     },
     name: "Domino'S Pizza"
   }
